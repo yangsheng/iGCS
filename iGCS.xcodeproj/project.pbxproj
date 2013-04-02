@@ -95,6 +95,7 @@
 		49C45CB2170A7820007C9999 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C45CB1170A7820007C9999 /* MobileCoreServices.framework */; };
 		49C45CB4170A7832007C9999 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C45CB3170A7832007C9999 /* libxml2.2.dylib */; };
 		49C45CB9170A7EA4007C9999 /* DebugLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C45CB8170A7EA4007C9999 /* DebugLogger.m */; };
+		49C45CBF170B57D4007C9999 /* apm_quad.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C45CBE170B57D4007C9999 /* apm_quad.png */; };
 		49DD940316D9A5C7000DE266 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DD940216D9A5C7000DE266 /* Security.framework */; };
 		CA43E09515143E580014F7C8 /* libRscMgrUniv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA43DFC815143E570014F7C8 /* libRscMgrUniv.a */; };
 		CA43E09615143E940014F7C8 /* 05-shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = CA43DE1215143E570014F7C8 /* 05-shuffle.png */; };
@@ -228,6 +229,7 @@
 		49C45CB3170A7832007C9999 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		49C45CB7170A7EA4007C9999 /* DebugLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLogger.h; sourceTree = "<group>"; };
 		49C45CB8170A7EA4007C9999 /* DebugLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugLogger.m; sourceTree = "<group>"; };
+		49C45CBE170B57D4007C9999 /* apm_quad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apm_quad.png; sourceTree = "<group>"; };
 		49DD940216D9A5C7000DE266 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CA20FD26164E4754005187A8 /* ardupilotmega.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ardupilotmega.h; sourceTree = "<group>"; };
 		CA20FD27164E4754005187A8 /* mavlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mavlink.h; sourceTree = "<group>"; };
@@ -743,6 +745,7 @@
 		496E625C16DAFAD700E52E4A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				49C45CBE170B57D4007C9999 /* apm_quad.png */,
 				49AC435B17089ACD008225A3 /* bigwheel.png */,
 				495253F31703F3E5006E27B0 /* 111-user.png */,
 				495253F41703F3E5006E27B0 /* 181-hammer.png */,
@@ -1598,6 +1601,7 @@
 				495253F51703F3E5006E27B0 /* 111-user.png in Resources */,
 				495253F61703F3E5006E27B0 /* 181-hammer.png in Resources */,
 				49AC435C17089ACD008225A3 /* bigwheel.png in Resources */,
+				49C45CBF170B57D4007C9999 /* apm_quad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

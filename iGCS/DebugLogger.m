@@ -36,9 +36,9 @@ static UILabel *consoleLabelRef;
     
     NSString *message = [[NSString alloc]initWithFormat:format arguments:args];
     NSLog(@"DebugLogger: %@",message);
-    [self addToConsole:[NSString stringWithFormat:@"%@: %@",[[NSDate date] description],message]];
+    //[self addToConsole:[NSString stringWithFormat:@"%@: %@",[[NSDate date] description],message]];
     
-    consoleLabelRef.text = [self getConsoleText];
+    //consoleLabelRef.text = [self getConsoleText];
 }
 
 
