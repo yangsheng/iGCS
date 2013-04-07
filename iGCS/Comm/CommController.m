@@ -13,6 +13,8 @@
 #import "DebugLogger.h"
 
 #import "RNBluetoothInterface.h"
+#import "FightingWalrusRadio.h"
+
 
 
 @implementation CommController
@@ -28,6 +30,19 @@ static RedparkSerialCable *redParkCable;
 
 static RNBluetoothInterface *rnBluetooth;
 
+static FightingWalrusRadio *fightingWalrusRadio;
+
+static NSString *activeInterfaceString;
+
++(iGCSMavLinkInterface*)appMLI
+{
+    return appMLI;
+}
+
++(NSString*)getActiveInterfaceString
+{
+    return activeInterfaceString;
+}
 
 // called at startup for app to initialize interfaces
 // input: instance of MainViewController - used to trigger view updates during comm operations
@@ -65,65 +80,118 @@ static RNBluetoothInterface *rnBluetooth;
     
     
     
-    [DebugLogger console: @"Creating RovingNetworks connection."];
-    //rnBluetooth = [RNBluetoothInterface create];
-    [DebugLogger console:@"RovingNetworks disabled..."];
     
-    if (rnBluetooth)
-    {
-        [connections addSource:rnBluetooth];
-        
-        [connections createConnection:rnBluetooth destination:appMLI];
-        
-        [DebugLogger console:@"Connected RN Bluetooth Rx to iGCS Application input."];
-        
-        [connections createConnection:appMLI destination:rnBluetooth];
-        
-        [DebugLogger console:@"Connected iGCS Application output to RN Bluetooth Tx."];
-    }
+    [self startRedpark];
     
-    else
-        // Do Redpark instead
+    
+    
+    
+}
+
+
+
++(BOOL) startRedpark
+{
+    // Prevent redundant connections
+    [connections closeAllConnections];
+    
+    if (!redParkCable)
     {
-        
         // configure input connection as redpark cable
         [DebugLogger console:@"Starting Redpark connection."];
         redParkCable = [RedparkSerialCable createWithViews:mainVC];
         
-        [DebugLogger console:@"Redpark started."];
-        [connections addSource:redParkCable];
-    
-        
-        // Forward redpark RX to app input
-        [connections createConnection:redParkCable destination:appMLI];
-        
-        
-        [DebugLogger console:@"Connected Redpark Rx to iGCS Application input."];
-        
-        
-        // Forward app output to redpark TX
-        [connections createConnection:appMLI destination:redParkCable];
-    
-        
-        [DebugLogger console:@"Connected iGCS Application output to Redpark Tx."];
-        
+        if (redParkCable)
+        {
+            [DebugLogger console:@"Redpark started."];
+        }
+        else
+        {
+            [DebugLogger console:@"Could not create Redpark!"];
+            return NO;
+        }
+    }
+    else
+    {
+        [DebugLogger console:@"Redpark already started."];
     }
     
+    [connections addSource:redParkCable];
+    [connections createConnection:redParkCable destination:appMLI];
+    [connections createConnection:appMLI destination:redParkCable];
+    [DebugLogger console:@"Connected Redpark to iGCS Application."];
     
+    activeInterfaceString = @"Redpark";
     
-    
-    
-    
-    
-    
-    
+    return YES;
 }
 
-
-+(iGCSMavLinkInterface*)appMLI
++(BOOL) startFWR
 {
-    return appMLI;
+    // Prevent redundant connections
+    [connections closeAllConnections];
+    
+    if (!fightingWalrusRadio)
+    {
+        fightingWalrusRadio = [FightingWalrusRadio create];
+        
+        if (fightingWalrusRadio)
+        {
+            [DebugLogger console:@"Created FWR."];
+        }
+        else
+        {
+            [DebugLogger console:@"FWR Could not be created!"];
+            return NO;
+        }
+    }
+    
+    [connections addSource:fightingWalrusRadio];
+    [connections createConnection:fightingWalrusRadio destination:appMLI];
+    [connections createConnection:appMLI destination:fightingWalrusRadio];
+    [DebugLogger console:@"Connected FWR to iGCS Application."];
+    
+    activeInterfaceString = @"Fighting Walrus";
+    
+    return YES;
 }
+
++(BOOL) startRNBT
+{
+    // Prevent redundant connections
+    [connections closeAllConnections];
+    
+    if (!rnBluetooth)
+    {
+        [DebugLogger console: @"Creating RovingNetworks connection."];
+        rnBluetooth = [RNBluetoothInterface create];
+        
+        if (rnBluetooth)
+        {
+            [DebugLogger console:@"Created RNBT."];
+        }
+        else
+        {
+            [DebugLogger console:@"Could not create RNBT!"];
+            return NO;
+        }
+    }
+    else
+    {
+        [DebugLogger console:@"RN Bluetooth already created."];
+    }
+    
+    [connections addSource:rnBluetooth];
+    [connections createConnection:rnBluetooth destination:appMLI];
+    [connections createConnection:appMLI destination:rnBluetooth];
+    [DebugLogger console:@"Connected RN Bluetooth to iGCS Application."];
+    
+    activeInterfaceString = @"Roving Networks";
+    
+    return YES;
+}
+
+
 
 
 

@@ -33,11 +33,19 @@
 
 +(void)start:(MainViewController*)mvc;
 
+
++(BOOL) startRedpark;
++(BOOL) startFWR;
++(BOOL) startRNBT;
+
+
 +(void) startBluetoothTx;
 +(void) startBluetoothRx;
 
 +(iGCSMavLinkInterface*)appMLI;
 
 +(void) closeAllInterfaces;
+
++(NSString*) getActiveInterfaceString;
 
 @end

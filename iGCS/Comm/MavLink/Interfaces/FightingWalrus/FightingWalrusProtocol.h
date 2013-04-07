@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "FightingWalrusMFI.h"
 
+@protocol FightingWalrusProtocolDelegate <NSObject>
+@required
+- (void) accessoryProducedData: (uint8_t*)bytes length:(int)length;
+@end
+
 @interface FightingWalrusProtocol : FightingWalrusMFI {
     uint8_t AccStatus;
     uint8_t AccMajor;
@@ -30,6 +35,8 @@
 @property (readonly) uint8_t AccMinor;
 @property (readonly) uint8_t AccRev;
 @property (readonly) uint8_t BoardID;
+
+@property (retain) id delegate;
 
 - (void) updateData;
 @end

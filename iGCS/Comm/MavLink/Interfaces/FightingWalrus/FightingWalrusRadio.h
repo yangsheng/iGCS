@@ -8,7 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "MavLinkInterface.h"
+#import "FightingWalrusProtocol.h"
 
-@interface FightingWalrusRadio : MavLinkInterface
 
+@interface FightingWalrusRadio : MavLinkInterface <FightingWalrusProtocolDelegate>
+
++(FightingWalrusRadio*)create;
+
+
+
+@property (strong) FightingWalrusProtocol *fwProtocol;
 @end

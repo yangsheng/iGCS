@@ -17,11 +17,15 @@
 @property (strong) NSMutableArray *pendingConsoleMessages;
 @property (strong) NSMutableArray *pendingErrorMessages;
 
+@property (strong, nonatomic) IBOutlet UILabel *activeInterfaceLabel;
 
 
 - (IBAction)bluetoothRxClicked:(id)sender;
 - (IBAction)bluetoothTxClicked:(id)sender;
 
+- (IBAction)enableRedpark:(id)sender;
+- (IBAction)enableFWR:(id)sender;
+- (IBAction)enableRNBT:(id)sender;
 
 -(void)consoleMessage:(NSString*)messageText;
 -(void)errorMessage:(NSString*)messageText;

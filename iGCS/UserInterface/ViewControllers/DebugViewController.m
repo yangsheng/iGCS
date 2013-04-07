@@ -86,6 +86,21 @@
     [CommController startBluetoothTx];
 }
 
+- (IBAction)enableRedpark:(id)sender {
+    [CommController startRedpark];
+    [self.activeInterfaceLabel setText:[CommController getActiveInterfaceString]];
+}
+
+- (IBAction)enableFWR:(id)sender {
+    [CommController startFWR];
+    [self.activeInterfaceLabel setText:[CommController getActiveInterfaceString]];
+}
+
+- (IBAction)enableRNBT:(id)sender {
+    [CommController startRNBT];
+    [self.activeInterfaceLabel setText:[CommController getActiveInterfaceString]];
+}
+
 
 -(void)consoleMessage:(NSString*)messageText
 {
@@ -149,6 +164,7 @@
 - (void)viewDidUnload {
     [self setConsoleTextView:nil];
     [self setErrorsTextView:nil];
+    [self setActiveInterfaceLabel:nil];
     [super viewDidUnload];
 }
 

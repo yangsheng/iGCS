@@ -35,6 +35,7 @@
 @synthesize temperature;
 @synthesize pot;
 @synthesize switches;
+@synthesize delegate;
 
 
 - (id) init
@@ -173,7 +174,12 @@
             case 31: // ReturnMavLinkData
             {
                 [DebugLogger console:@"Walrus received MavLink data: %i",expectedNumBytes];
+                
+                [[self delegate] accessoryProducedData:buf length:expectedNumBytes];
+                
                 /*MAVMessage *message = [MAVParseMessage parseMAVMessage:data];
+                 
+                 
                 
                 if (message)
                 {

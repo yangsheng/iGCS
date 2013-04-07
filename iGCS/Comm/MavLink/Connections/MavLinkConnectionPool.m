@@ -49,6 +49,10 @@
     [interface close];
 }
 
+-(void)closeAllConnections
+{
+    [self removeAllConnections];
+}
 
 -(void)removeAllConnections
 {
