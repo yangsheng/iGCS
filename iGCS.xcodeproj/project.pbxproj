@@ -82,7 +82,6 @@
 		496E62DD16DAFBF600E52E4A /* RedparkSerialCable.m in Sources */ = {isa = PBXBuildFile; fileRef = 496E62BF16DAFBF600E52E4A /* RedparkSerialCable.m */; };
 		496E62DE16DAFBF600E52E4A /* SocketStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 496E62C216DAFBF600E52E4A /* SocketStream.m */; };
 		496E62DF16DAFBF600E52E4A /* SocketStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 496E62C216DAFBF600E52E4A /* SocketStream.m */; };
-		49AC435C17089ACD008225A3 /* bigwheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AC435B17089ACD008225A3 /* bigwheel.png */; };
 		49AC435E1708B8EF008225A3 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49AC435D1708B8EF008225A3 /* Dropbox.framework */; };
 		49C1FA0C16DC63A000BAE96B /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C1FA0B16DC63A000BAE96B /* DebugViewController.m */; };
 		49C1FA0E16DC654100BAE96B /* wrench.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C1FA0D16DC654100BAE96B /* wrench.png */; };
@@ -118,6 +117,8 @@
 		CAA2CFD6161BFFB700267615 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CAA2CFD2161BFFB700267615 /* README.md */; };
 		CAA2CFD7161BFFB700267615 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = CAA2CFD3161BFFB700267615 /* release_notes.md */; };
 		CAA2CFDA161C000C00267615 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA2CFD9161C000C00267615 /* libz.dylib */; };
+		CAB48D3A170D3B520013D035 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB48D39170D3B520013D035 /* GLKit.framework */; };
+		CAB48D3C170D3D040013D035 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB48D3B170D3D040013D035 /* OpenGLES.framework */; };
 		CABB696214DE4CFE00FC1520 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABB696114DE4CFE00FC1520 /* ExternalAccessory.framework */; };
 		CAE08DE51515BAE1007E50DD /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = CA43DE1415143E570014F7C8 /* 07-map-marker.png */; };
 		CAE20224152EA67A00D659E2 /* 13-target.png in Resources */ = {isa = PBXBuildFile; fileRef = CA43DE3815143E570014F7C8 /* 13-target.png */; };
@@ -215,7 +216,6 @@
 		496E62C216DAFBF600E52E4A /* SocketStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketStream.m; sourceTree = "<group>"; };
 		496E62C416DAFBF600E52E4A /* MavLinkPacketHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MavLinkPacketHandler.h; sourceTree = "<group>"; };
 		496E62C516DAFBF600E52E4A /* MavLinkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MavLinkTools.h; sourceTree = "<group>"; };
-		49AC435B17089ACD008225A3 /* bigwheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigwheel.png; sourceTree = "<group>"; };
 		49AC435D1708B8EF008225A3 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = iGCS/Dropbox.framework; sourceTree = "<group>"; };
 		49C1FA0A16DC63A000BAE96B /* DebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugViewController.h; sourceTree = "<group>"; };
 		49C1FA0B16DC63A000BAE96B /* DebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugViewController.m; sourceTree = "<group>"; };
@@ -576,6 +576,8 @@
 		CAA2CFD3161BFFB700267615 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		CAA2CFD4161BFFB700267615 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		CAA2CFD9161C000C00267615 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CAB48D39170D3B520013D035 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		CAB48D3B170D3D040013D035 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		CABB696114DE4CFE00FC1520 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		CAF0B8391657A8960033B0BC /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		CAF0B83A1657A8960033B0BC /* CPTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnnotation.h; sourceTree = "<group>"; };
@@ -686,6 +688,8 @@
 				CAF0B8841657A8960033B0BC /* libCorePlot-CocoaTouch.a in Frameworks */,
 				495253E71703EC8B006E27B0 /* FacebookSDK.framework in Frameworks */,
 				49AC435E1708B8EF008225A3 /* Dropbox.framework in Frameworks */,
+				CAB48D3A170D3B520013D035 /* GLKit.framework in Frameworks */,
+				CAB48D3C170D3D040013D035 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1318,9 +1322,6 @@
 		CA499F5314DE33BC00FCC9FB = {
 			isa = PBXGroup;
 			children = (
-				49C45CB3170A7832007C9999 /* libxml2.2.dylib */,
-				49C45CB1170A7820007C9999 /* MobileCoreServices.framework */,
-				49C45CAF170A7810007C9999 /* CFNetwork.framework */,
 				CAF0B8381657A8960033B0BC /* CorePlotHeaders */,
 				CA20FD24164E4754005187A8 /* mavlink-include */,
 				CA43DE0815143E570014F7C8 /* glyphish-icons */,
@@ -1345,6 +1346,11 @@
 		CA499F6114DE33BC00FCC9FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAB48D3B170D3D040013D035 /* OpenGLES.framework */,
+				CAB48D39170D3B520013D035 /* GLKit.framework */,
+				49C45CB1170A7820007C9999 /* MobileCoreServices.framework */,
+				49C45CAF170A7810007C9999 /* CFNetwork.framework */,
+				49C45CB3170A7832007C9999 /* libxml2.2.dylib */,
 				49AC435D1708B8EF008225A3 /* Dropbox.framework */,
 				495253F11703F213006E27B0 /* libsqlite3.0.dylib */,
 				495253EF1703F1CD006E27B0 /* Social.framework */,
