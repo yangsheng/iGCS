@@ -25,6 +25,8 @@
     
     fwr.fwProtocol = [[FightingWalrusProtocol alloc] init];
     
+    fwr.fwProtocol.delegate = fwr;
+    
     return fwr;
     
     
@@ -34,10 +36,9 @@
 
 -(void)consumeData:(uint8_t *)bytes length:(int)length
 {
-    [DebugLogger console:@"FightingWalrusRadio: consumeData (stubbed)."];
+    [DebugLogger console:@"FightingWalrusRadio: consumeData (%i bytes)",length];
     
-    //NSData *dataToStream = [NSData dataWithBytes:bytes length:length];
-    //[self writeData:dataToStream];
+    [self.fwProtocol queueTxBytes:[NSData dataWithBytes:bytes length:length]];
     
 }
 
@@ -47,6 +48,7 @@
 
 -(void)accessoryProducedData:(uint8_t*)bytes length:(int)length
 {
+    [DebugLogger console:@"FWR: accessoryProducedData: %i bytes",length];
     [self produceData:bytes length:length];
 }
 

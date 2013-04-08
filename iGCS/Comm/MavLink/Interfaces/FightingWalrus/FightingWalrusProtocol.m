@@ -161,11 +161,11 @@
                 
                 // remove final character since stringWithUTF8String converts the trailing NULL to an 'S' for some reason
                 //NSString *finalMessage = [parsedMessage substringToIndex:[parsedMessage length]-1];
-                
+                [DebugLogger console:@"Received %i debug strings",[messages count]];
                 int idx = 1;
                 for (NSString *msg in messages)
                 {
-                    [DebugLogger console:@"Received message %i: %@",idx,msg];
+                    //[DebugLogger console:@"Received message %i: %@",idx,msg];
                     //[Logger logDebug:msg];
                     idx++;
                 }
