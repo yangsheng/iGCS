@@ -124,7 +124,7 @@ static NSString *activeInterfaceString;
     [connections createConnection:appMLI destination:redParkCable];
     [DebugLogger console:@"Connected Redpark to iGCS Application."];
     
-    activeInterfaceString = @"Redpark";
+    activeInterfaceString = @"Prototype TTL";
     
     return YES;
 }
@@ -189,7 +189,7 @@ static NSString *activeInterfaceString;
     [connections createConnection:appMLI destination:rnBluetooth];
     [DebugLogger console:@"Connected RN Bluetooth to iGCS Application."];
     
-    activeInterfaceString = @"Roving Networks";
+    activeInterfaceString = @"Prototype Bluetooth";
     
     return YES;
 }

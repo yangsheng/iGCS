@@ -71,9 +71,9 @@ static AppDelegate *shared;
     // TODO: Move this into FightingWalrus Interface to support non-FW operation
     // startup the external accessory manager
     
-	walrus = [[FightingWalrusProtocol alloc] init];
+	//walrus = [[FightingWalrusProtocol alloc] init];
     
-    NSLog(@"Walrus protocol started.");
+    //NSLog(@"Walrus protocol started.");
     
 	alertView = [[UIAlertView alloc] initWithTitle:@"Accessory Not Found"
 										   message:@"Fighting Walrus Radio is not attached."

@@ -64,6 +64,9 @@
     
     [Logger clearPendingConsoleMessages];
     [Logger clearPendingErrorMessages];
+    
+    
+    [self.activeInterfaceLabel setText:[CommController getActiveInterfaceString]];
         
 }
 
