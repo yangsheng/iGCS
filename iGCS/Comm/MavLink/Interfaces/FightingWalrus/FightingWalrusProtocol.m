@@ -47,6 +47,10 @@
 	[updateThread start];
     
 	BoardID = MFI_UNKNOWN_HW;
+    
+    
+    [self sendMavLinkRequest:@"enableStream"];
+    
 	//
 	return self;
 	
@@ -60,8 +64,6 @@
 
 - (void) updateData
 {
-	char requestDebugInstrum[6] = {20,0,0,0,0,0};
-	char requestMavLinkData[6] = {30,0,0,0,0,0};
 	int c = 0;
 	float updateRate = kUPDATERATE_SLOW;
     
@@ -71,19 +73,15 @@
 		{
 			if(BoardID == MFI_UNKNOWN_HW)
 			{
-				char requestStatus[] = {0,0,0,0,0,0};
-				[self queueTxBytes:[NSData dataWithBytes:requestStatus length:sizeof(requestStatus)]];
+                [self sendStatusRequest];
+				
+				
 			}
 			
 			if ((++c % (int)(1.0/updateRate))==0) // update the temperature once per second
 			{
-                //[DebugLogger console:@"Requesting debug instrum...");
-				//[self queueTxBytes:[NSData dataWithBytes:requestTemp length:sizeof(requestTemp)]];
-                //[self queueTxBytes:[NSData dataWithBytes:requestPot length:sizeof(requestPot)]];
-				[self queueTxBytes:[NSData dataWithBytes:requestDebugInstrum length:sizeof(requestDebugInstrum)]];
-                [self queueTxBytes:[NSData dataWithBytes:requestMavLinkData length:sizeof(requestMavLinkData)]];
-                
-                //[DebugLogger console:@"Sent accessory data requests.");
+                [self sendDebugInstrumRequest];
+                [self sendMavLinkDataRequest];
 			}
             
 		}
@@ -95,6 +93,46 @@
 		}
 		[NSThread sleepForTimeInterval:updateRate];
 	}
+}
+
+
+// Message helpers
+
+-(void) sendStatusRequest
+{
+    char requestStatus[] = {0,0,0,0,0,0};
+    
+    [self queueTxBytes:[NSData dataWithBytes:requestStatus length:sizeof(requestStatus)]];
+}
+
+- (void) sendDebugInstrumRequest
+{
+	char requestDebugInstrum[6] = {20,0,0,0,0,0};
+    [self queueTxBytes:[NSData dataWithBytes:requestDebugInstrum length:sizeof(requestDebugInstrum)]];
+    
+}
+
+-(void) sendMavLinkDataRequest
+{
+    
+	char requestMavLinkData[6] = {30,0,0,0,0,0};
+    [self queueTxBytes:[NSData dataWithBytes:requestMavLinkData length:sizeof(requestMavLinkData)]];
+    
+}
+
+-(void) sendMavLinkRequest:(NSString*)requestType
+{
+    if ([requestType isEqualToString:@"enableStream"])
+    {
+        
+        char requestEnableMavlinkStream[6] = {50,0,0,0,0,0};
+        [self queueTxBytes:[NSData dataWithBytes:requestEnableMavlinkStream length:sizeof(requestEnableMavlinkStream)]];
+        
+    }
+    else
+    {
+        NSLog(@"Error: Did not recognize sendMavLinkRequest requestType: %@",requestType);
+    }
 }
 
 - (int) readData:(NSData *) data

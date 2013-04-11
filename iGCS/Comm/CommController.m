@@ -81,10 +81,10 @@ static NSString *activeInterfaceString;
     
     
     
-    //[self startRedpark];
+    [self startRedpark];
     
     
-    [self startFWR];
+    //[self startFWR];
     
     
     
