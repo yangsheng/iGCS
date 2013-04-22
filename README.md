@@ -11,6 +11,19 @@ For further details, see:
 - http://diydrones.com/profiles/blogs/ipad-ground-control-station
 - http://www.youtube.com/watch?v=S1YOwLGsUrs
 
+=======
+Building
+========
+
+Recent additions to the project include the kxvideo submodule. kxvideo in turn relies on ffmpeg and the gas preprocessor. Both are included as submodules to the kxvideo project so the build steps are a bit more involved now.
+
+1. clone the project
+2. cd iGCS
+3. git submodule update --init --recursive
+4. cd submodules/kxmovie
+5. rake build_ffmpeg
+(The first time you will be warned to install the gas preprocessor, follow the instructions provided)
+8. Run the iCGS project in Xcode
 
 License
 =======
