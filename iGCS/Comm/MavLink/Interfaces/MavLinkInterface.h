@@ -23,6 +23,9 @@
 @property (strong) MavLinkConnectionPool *connectionPool;
 
 
++(NSString*)interfaceDescription;
+
+
 // receiveBytes processes bytes forwarded from another interface
 -(void)consumeData:(uint8_t*)bytes length:(int)length;
 

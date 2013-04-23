@@ -29,6 +29,7 @@
 
 @implementation iGCSMavLinkInterface
 
++(NSString*)interfaceDescription { return @"iGCS App Interface"; }
 
 +(iGCSMavLinkInterface*)createWithViewController:(MainViewController*)mainVC
 {

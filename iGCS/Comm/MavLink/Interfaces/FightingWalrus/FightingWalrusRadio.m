@@ -14,6 +14,8 @@
 
 
 
++(NSString*)interfaceDescription { return @"Fighting Walrus Radio"; }
+
 
 
 +(FightingWalrusRadio*)create

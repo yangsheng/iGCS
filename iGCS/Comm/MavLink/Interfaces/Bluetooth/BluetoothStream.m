@@ -10,7 +10,7 @@
 
 @implementation BluetoothStream
 
-
++(NSString*)interfaceDescription { return @"Bluetooth Restreaming Interface"; }
 
 +(BluetoothStream*) createForTx
 {

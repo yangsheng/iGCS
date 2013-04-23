@@ -13,6 +13,7 @@
 @implementation RNBluetoothInterface
 
 
++(NSString*)interfaceDescription { return @"Prototype Bluetooth"; }
 
 +(RNBluetoothInterface*)create
 {
@@ -193,6 +194,11 @@
     return (_session != nil);
 }
 
+-(void) close
+{
+    // superclass method
+    [self closeSession];
+}
 
 - (void)closeSession
 {

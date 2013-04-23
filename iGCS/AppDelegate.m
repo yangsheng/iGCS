@@ -106,6 +106,8 @@ static AppDelegate *shared;
 		[alertView dismissWithClickedButtonIndex:0 animated:YES];
 	}
     
+    [CommController closeAllInterfaces];
+    
 	NSLog(@"Going Inactive");
 }
 
@@ -115,6 +117,8 @@ static AppDelegate *shared;
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    
+    [CommController closeAllInterfaces];
     
 	[updateTimer invalidate]; // shutdown the timer;
     

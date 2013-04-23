@@ -17,6 +17,7 @@
 
 @implementation RedparkSerialCable
 
++(NSString*)interfaceDescription { return @"Prototype TTL"; }
 
 +(RedparkSerialCable*)createWithViews:(MainViewController*)mvc
 {

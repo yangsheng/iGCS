@@ -10,11 +10,11 @@
 
 #import "DebugViewController.h"
 
-#import "DebugLogger.h"
+#import "Logger.h"
 
 #import "RNBluetoothInterface.h"
 #import "FightingWalrusRadio.h"
-
+#import "Logger.h"
 
 
 @implementation CommController
@@ -32,6 +32,7 @@ static RNBluetoothInterface *rnBluetooth;
 
 static FightingWalrusRadio *fightingWalrusRadio;
 
+//static MavLinkInterface *activeInputInterface;
 static NSString *activeInterfaceString;
 
 +(iGCSMavLinkInterface*)appMLI
@@ -55,10 +56,10 @@ static NSString *activeInterfaceString;
         
         [self createDefaultConnections];
         
-        [DebugLogger console:@"Created default connections in CommController."];
+        [Logger console:@"Created default connections in CommController."];
     }
     @catch (NSException *exception) {
-        [DebugLogger dumpException:exception];
+        [Logger dumpException:exception];
     }
     
     
@@ -75,8 +76,7 @@ static NSString *activeInterfaceString;
 {
     
     appMLI = [iGCSMavLinkInterface createWithViewController:mainVC];
-    [connections addDestination:appMLI];
-    [DebugLogger console:@"Configured iGCS Application as MavLink consumer."];
+    
     
     
     
@@ -92,47 +92,58 @@ static NSString *activeInterfaceString;
 }
 
 
++(void)resetConnectionPool
+{
+    [connections closeAllConnections];
+    [Logger console:@"Closed all connections."];
+    
+    [self closeAllInterfaces];
+    [Logger console:@"Closed all interfaces."];
+    
+    [connections addDestination:appMLI];
+    [Logger console:@"Configured iGCS Application as MavLink consumer."];
+}
+
+
 
 +(BOOL) startRedpark
 {
-    // Prevent redundant connections
-    [connections closeAllConnections];
+    [self resetConnectionPool];
     
     if (!redParkCable)
     {
         // configure input connection as redpark cable
-        [DebugLogger console:@"Starting Redpark connection."];
+        [Logger console:@"Starting Redpark connection."];
         redParkCable = [RedparkSerialCable createWithViews:mainVC];
         
         if (redParkCable)
         {
-            [DebugLogger console:@"Redpark started."];
+            [Logger console:@"Redpark started."];
         }
         else
         {
-            [DebugLogger console:@"Could not create Redpark!"];
+            [Logger console:@"Could not create Redpark!"];
             return NO;
         }
     }
     else
     {
-        [DebugLogger console:@"Redpark already started."];
+        [Logger console:@"Redpark already started."];
     }
     
     [connections addSource:redParkCable];
     [connections createConnection:redParkCable destination:appMLI];
     [connections createConnection:appMLI destination:redParkCable];
-    [DebugLogger console:@"Connected Redpark to iGCS Application."];
+    [Logger console:@"Connected Redpark to iGCS Application."];
     
-    activeInterfaceString = @"Prototype TTL";
+    activeInterfaceString = [RedparkSerialCable interfaceDescription];
     
     return YES;
 }
 
 +(BOOL) startFWR
 {
-    // Prevent redundant connections
-    [connections closeAllConnections];
+    [self resetConnectionPool];
     
     if (!fightingWalrusRadio)
     {
@@ -140,11 +151,11 @@ static NSString *activeInterfaceString;
         
         if (fightingWalrusRadio)
         {
-            [DebugLogger console:@"Created FWR."];
+            [Logger console:@"Created FWR."];
         }
         else
         {
-            [DebugLogger console:@"FWR Could not be created!"];
+            [Logger console:@"FWR Could not be created!"];
             return NO;
         }
     }
@@ -152,44 +163,43 @@ static NSString *activeInterfaceString;
     [connections addSource:fightingWalrusRadio];
     [connections createConnection:fightingWalrusRadio destination:appMLI];
     [connections createConnection:appMLI destination:fightingWalrusRadio];
-    [DebugLogger console:@"Connected FWR to iGCS Application."];
+    [Logger console:@"Connected FWR to iGCS Application."];
     
-    activeInterfaceString = @"Fighting Walrus";
+    activeInterfaceString = [FightingWalrusRadio interfaceDescription];
     
     return YES;
 }
 
 +(BOOL) startRNBT
 {
-    // Prevent redundant connections
-    [connections closeAllConnections];
+    [self resetConnectionPool];
     
     if (!rnBluetooth)
     {
-        [DebugLogger console: @"Creating RovingNetworks connection."];
+        [Logger console: @"Creating RovingNetworks connection."];
         rnBluetooth = [RNBluetoothInterface create];
         
         if (rnBluetooth)
         {
-            [DebugLogger console:@"Created RNBT."];
+            [Logger console:@"Created RNBT."];
         }
         else
         {
-            [DebugLogger console:@"Could not create RNBT!"];
+            [Logger console:@"Could not create RNBT!"];
             return NO;
         }
     }
     else
     {
-        [DebugLogger console:@"RN Bluetooth already created."];
+        [Logger console:@"RN Bluetooth already created."];
     }
     
     [connections addSource:rnBluetooth];
     [connections createConnection:rnBluetooth destination:appMLI];
     [connections createConnection:appMLI destination:rnBluetooth];
-    [DebugLogger console:@"Connected RN Bluetooth to iGCS Application."];
+    [Logger console:@"Connected RN Bluetooth to iGCS Application."];
     
-    activeInterfaceString = @"Prototype Bluetooth";
+    activeInterfaceString = [RNBluetoothInterface interfaceDescription];
     
     return YES;
 }
@@ -208,7 +218,7 @@ static NSString *activeInterfaceString;
     [connections createConnection:redParkCable destination:bts];
     
     
-    [DebugLogger console:@"Created BluetoothStream for Tx."];
+    [Logger console:@"Created BluetoothStream for Tx."];
     
     NSLog(@"Created BluetoothStream for Tx: %@",[bts description]);
     
@@ -224,8 +234,10 @@ static NSString *activeInterfaceString;
     [connections createConnection:bts destination:appMLI];
     
     
-    [DebugLogger console:@"Created BluetoothStream for Rx."];
+    [Logger console:@"Created BluetoothStream for Rx."];
     NSLog(@"Created BluetoothStream for Rx: %@",[bts description]);
+    
+    activeInterfaceString = [BluetoothStream interfaceDescription];
     
 }
 
@@ -233,6 +245,11 @@ static NSString *activeInterfaceString;
 +(void) closeAllInterfaces
 {
     [connections closeAllInterfaces];
+    
+    // Clear static interface variables so objects must be recreated on restart
+    fightingWalrusRadio = nil;
+    rnBluetooth = nil;
+    redParkCable = nil;
 }
 
 

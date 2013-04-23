@@ -15,6 +15,9 @@
 @implementation MavLinkInterface
 
 
+// Subclasses should override this
++(NSString*)interfaceDescription { return @"Generic MavLink Interface"; }
+
 
 -(void)consumeData:(uint8_t*)bytes length:(int)length
 {
