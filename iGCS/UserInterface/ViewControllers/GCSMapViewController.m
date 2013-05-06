@@ -17,6 +17,8 @@
 
 #import "DebugLogger.h"
 
+#import "GCSImageUtils.h"
+
 @implementation GCSMapViewController
 
 @synthesize windIconView;
@@ -80,7 +82,7 @@
     [uavPos setCoordinate:CLLocationCoordinate2DMake(0, 0)];
 
     uavView = [[MKAnnotationView  alloc] initWithAnnotation:uavPos reuseIdentifier:@"uavView"];
-    uavView.image = [GCSMapViewController imageWithImage: [UIImage imageNamed:@"airplane.png"] 
+    uavView.image = [GCSImageUtils imageWithImage: [UIImage imageNamed:@"airplane.png"] 
                                                 scaledToSize:CGSizeMake(AIRPLANE_ICON_SIZE,AIRPLANE_ICON_SIZE)
                                                 rotation: 0];
     uavView.userInteractionEnabled = YES;
@@ -221,7 +223,7 @@
     [altitudeView setScale:100];
     [altitudeView setValue:0];
     
-    windIconView = [[UIImageView alloc] initWithImage:[GCSMapViewController image:[UIImage imageNamed:@"193-location-arrow.png"]
+    windIconView = [[UIImageView alloc] initWithImage:[GCSImageUtils image:[UIImage imageNamed:@"193-location-arrow.png"]
                                                                         withColor:[UIColor redColor]]];
     windIconView.frame = CGRectMake(10, 10, windIconView.frame.size.width, windIconView.frame.size.height);
     [map addSubview: windIconView];
@@ -793,7 +795,7 @@
             mavlink_attitude_t attitudePkt;
             mavlink_msg_attitude_decode(msg, &attitudePkt);
             
-            uavView.image = [GCSMapViewController imageWithImage: [UIImage imageNamed:@"airplane.png"] 
+            uavView.image = [GCSImageUtils imageWithImage: [UIImage imageNamed:@"airplane.png"] 
                                                     scaledToSize:CGSizeMake(AIRPLANE_ICON_SIZE,AIRPLANE_ICON_SIZE)
                                                         rotation: attitudePkt.yaw];
             
@@ -917,7 +919,7 @@
         view.enabled = YES;
         view.canShowCallout = YES;
         view.centerOffset = CGPointMake(0,0);      
-        view.image = [GCSMapViewController image:[UIImage imageNamed:@"13-target.png"]
+        view.image = [GCSImageUtils image:[UIImage imageNamed:@"13-target.png"]
                                         withColor:WAYPOINT_LINE_COLOR];
         return view;
     }

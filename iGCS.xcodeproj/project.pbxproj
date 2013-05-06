@@ -15,6 +15,9 @@
 		189E23251710D00000548C88 /* kxmovie.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 189E23241710D00000548C88 /* kxmovie.bundle */; };
 		189E235E1710DBBC00548C88 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 189E235D1710DBBC00548C88 /* libiconv.dylib */; };
 		18E62665171101D9006A5D43 /* libkxmovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E62664171101D9006A5D43 /* libkxmovie.a */; };
+		18FE2FCA17385096009E0A06 /* GCSVideoAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE2FC917385096009E0A06 /* GCSVideoAnnotationView.m */; };
+		18FE2FD7173856EE009E0A06 /* GCSFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE2FD4173856EE009E0A06 /* GCSFileUtils.m */; };
+		18FE2FD8173856EE009E0A06 /* GCSImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE2FD6173856EE009E0A06 /* GCSImageUtils.m */; };
 		492C812C16DBCCE9004001FF /* BTLEMavLinkCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = 492C812716DBCCE9004001FF /* BTLEMavLinkCentral.m */; };
 		492C812D16DBCCE9004001FF /* BTLEMavLinkCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = 492C812716DBCCE9004001FF /* BTLEMavLinkCentral.m */; };
 		492C812E16DBCCE9004001FF /* BTLEMavLinkPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 492C812916DBCCE9004001FF /* BTLEMavLinkPeripheral.m */; };
@@ -169,6 +172,12 @@
 		189E23241710D00000548C88 /* kxmovie.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = kxmovie.bundle; path = submodules/kxmovie/kxmovie/kxmovie.bundle; sourceTree = "<group>"; };
 		189E235D1710DBBC00548C88 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		18E62664171101D9006A5D43 /* libkxmovie.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkxmovie.a; path = submodules/kxmovie/libs/libkxmovie.a; sourceTree = "<group>"; };
+		18FE2FC817385096009E0A06 /* GCSVideoAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSVideoAnnotationView.h; sourceTree = "<group>"; };
+		18FE2FC917385096009E0A06 /* GCSVideoAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSVideoAnnotationView.m; sourceTree = "<group>"; };
+		18FE2FD3173856EE009E0A06 /* GCSFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSFileUtils.h; sourceTree = "<group>"; };
+		18FE2FD4173856EE009E0A06 /* GCSFileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSFileUtils.m; sourceTree = "<group>"; };
+		18FE2FD5173856EE009E0A06 /* GCSImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSImageUtils.h; sourceTree = "<group>"; };
+		18FE2FD6173856EE009E0A06 /* GCSImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSImageUtils.m; sourceTree = "<group>"; };
 		492C812616DBCCE9004001FF /* BTLEMavLinkCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLEMavLinkCentral.h; sourceTree = "<group>"; };
 		492C812716DBCCE9004001FF /* BTLEMavLinkCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTLEMavLinkCentral.m; sourceTree = "<group>"; };
 		492C812816DBCCE9004001FF /* BTLEMavLinkPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTLEMavLinkPeripheral.h; sourceTree = "<group>"; };
@@ -777,6 +786,17 @@
 			name = kxmovie;
 			sourceTree = "<group>";
 		};
+		18FE2FD2173856EE009E0A06 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				18FE2FD3173856EE009E0A06 /* GCSFileUtils.h */,
+				18FE2FD4173856EE009E0A06 /* GCSFileUtils.m */,
+				18FE2FD5173856EE009E0A06 /* GCSImageUtils.h */,
+				18FE2FD6173856EE009E0A06 /* GCSImageUtils.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		492C812516DBCCE9004001FF /* BTLE */ = {
 			isa = PBXGroup;
 			children = (
@@ -858,6 +878,8 @@
 				496E627216DAFB8B00E52E4A /* GotoPointAnnotation.m */,
 				496E627316DAFB8B00E52E4A /* WaypointAnnotation.h */,
 				496E627416DAFB8B00E52E4A /* WaypointAnnotation.m */,
+				18FE2FC817385096009E0A06 /* GCSVideoAnnotationView.h */,
+				18FE2FC917385096009E0A06 /* GCSVideoAnnotationView.m */,
 			);
 			path = Annotations;
 			sourceTree = "<group>";
@@ -1454,6 +1476,7 @@
 		CA499F6814DE33BC00FCC9FB /* iGCS */ = {
 			isa = PBXGroup;
 			children = (
+				18FE2FD2173856EE009E0A06 /* utils */,
 				1888DE921710C85400ADA039 /* sdpFiles */,
 				495253E51703EC8B006E27B0 /* Login */,
 				496E629F16DAFBF600E52E4A /* Comm */,
@@ -1643,7 +1666,7 @@
 		CA499F5514DE33BC00FCC9FB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = CA499F5814DE33BC00FCC9FB /* Build configuration list for PBXProject "iGCS" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1783,6 +1806,9 @@
 				495253E416FB9971006E27B0 /* GKNetController.m in Sources */,
 				495253EA1703EFAE006E27B0 /* ProfileViewController.m in Sources */,
 				49C45CB9170A7EA4007C9999 /* DebugLogger.m in Sources */,
+				18FE2FCA17385096009E0A06 /* GCSVideoAnnotationView.m in Sources */,
+				18FE2FD7173856EE009E0A06 /* GCSFileUtils.m in Sources */,
+				18FE2FD8173856EE009E0A06 /* GCSImageUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1858,6 +1884,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1871,7 +1901,9 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1884,13 +1916,19 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -1902,6 +1940,7 @@
 		CA499F9D14DE33BC00FCC9FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1940,6 +1979,7 @@
 		CA499F9E14DE33BC00FCC9FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
