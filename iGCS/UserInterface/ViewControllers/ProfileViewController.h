@@ -18,6 +18,14 @@
 
 @property (weak) AppDelegate *appDelegate;
 
+
+@property (strong, nonatomic) IBOutlet UIButton *recordButton;
+@property (strong, nonatomic) IBOutlet UIButton *playbackButton;
+
+
 - (IBAction)facebookLoginButtonPressed:(id)sender;
 
+- (IBAction)playbackButtonClick:(id)sender;
+
+- (IBAction)recordButtonClick:(id)sender;
 @end

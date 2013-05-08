@@ -14,6 +14,8 @@
 
 #import "RNBluetoothInterface.h"
 
+#import "RecordPlaybackInterface.h"
+
 
 @implementation CommController
 
@@ -27,6 +29,13 @@ static iGCSMavLinkInterface *appMLI;
 static RedparkSerialCable *redParkCable;
 
 static RNBluetoothInterface *rnBluetooth;
+
+static RecordPlaybackInterface *recorder;
+static RecordPlaybackInterface *player;
+
+
+static MavLinkInterface *currentInputInterface;
+
 
 
 // called at startup for app to initialize interfaces
@@ -71,6 +80,8 @@ static RNBluetoothInterface *rnBluetooth;
     
     if (rnBluetooth)
     {
+        currentInputInterface = rnBluetooth;
+        
         [connections addSource:rnBluetooth];
         
         [connections createConnection:rnBluetooth destination:appMLI];
@@ -89,6 +100,8 @@ static RNBluetoothInterface *rnBluetooth;
         // configure input connection as redpark cable
         [DebugLogger console:@"Starting Redpark connection."];
         redParkCable = [RedparkSerialCable createWithViews:mainVC];
+        
+        currentInputInterface = redParkCable;
         
         [DebugLogger console:@"Redpark started."];
         [connections addSource:redParkCable];
@@ -164,6 +177,51 @@ static RNBluetoothInterface *rnBluetooth;
     [connections closeAllInterfaces];
 }
 
+
+
++(void)startRecording
+{
+    if (!recorder)
+    {
+        recorder = [RecordPlaybackInterface createForRecord];
+    }
+    
+    [connections addDestination:recorder];
+    [connections createConnection:currentInputInterface destination:recorder];
+
+}
+
++(void)stopRecording
+{
+    if (recorder)
+    {
+        [recorder stop];
+    }
+}
+
++(void)startPlayback
+{
+    if (!player)
+    {
+        player = [RecordPlaybackInterface createForPlayback];
+    }
+    
+    [connections closeAllInterfaces];
+    
+    [connections addSource:player];
+    appMLI = [iGCSMavLinkInterface createWithViewController:mainVC];
+    [connections addDestination:appMLI];
+    
+    [connections createConnection:player destination:appMLI];
+}
+
++(void)stopPlayback
+{
+    if (player)
+    {
+        [player stop];
+    }
+}
 
 @end
 

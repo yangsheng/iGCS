@@ -40,4 +40,9 @@
 
 +(void) closeAllInterfaces;
 
++(void)startRecording;
++(void)stopRecording;
++(void)startPlayback;
++(void)stopPlayback;
+
 @end

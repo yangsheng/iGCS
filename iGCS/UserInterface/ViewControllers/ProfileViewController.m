@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "AppDelegate.h"
+#import "CommController.h"
 
 @implementation ProfileViewController
 
@@ -159,11 +160,46 @@
      */
     
 }
+
+#define kStartPlaybackLabelText @"StartPlayback"
+#define kStopPlaybackLabelText @"StopPlayback"
+#define kStartRecordLabelText @"StartRecord"
+#define kStopRecordLabelText @"StopRecord"
+
+- (IBAction)playbackButtonClick:(id)sender {
+    if ([[[self.playbackButton titleLabel]text] isEqualToString:kStartPlaybackLabelText])
+    {
+        [[self.playbackButton titleLabel] setText:kStopPlaybackLabelText];
+        [CommController startPlayback];
+    }
+    else
+    {
+        [[self.playbackButton titleLabel] setText:kStartPlaybackLabelText];
+        [CommController stopPlayback];
+    }
+}
+
+- (IBAction)recordButtonClick:(id)sender {
+    if ([[[self.recordButton titleLabel]text] isEqualToString:kStartRecordLabelText])
+    {
+        [[self.recordButton titleLabel] setText:kStopRecordLabelText];
+        [CommController startRecording];
+    }
+    else
+    {
+        [[self.recordButton titleLabel] setText:kStartRecordLabelText];
+        [CommController stopRecording];
+    }
+}
+
+
 - (void)viewDidUnload {
     [self setTotalFlightHoursLabel:nil];
     [self setCrashesLabel:nil];
     [self setFacebookLoginButton:nil];
     [self setFacebookStatusLabel:nil];
+    [self setRecordButton:nil];
+    [self setPlaybackButton:nil];
     [super viewDidUnload];
 }
 @end

@@ -103,6 +103,10 @@
 		49C45CB4170A7832007C9999 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C45CB3170A7832007C9999 /* libxml2.2.dylib */; };
 		49C45CB9170A7EA4007C9999 /* DebugLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C45CB8170A7EA4007C9999 /* DebugLogger.m */; };
 		49DD940316D9A5C7000DE266 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49DD940216D9A5C7000DE266 /* Security.framework */; };
+		49F01CD3173AFBC800BE75F3 /* RecordPlaybackInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F01CD2173AFBC800BE75F3 /* RecordPlaybackInterface.m */; };
+		49F01CD6173AFD4C00BE75F3 /* StreamRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F01CD5173AFD4C00BE75F3 /* StreamRecorder.m */; };
+		49F01CD9173AFD5A00BE75F3 /* StreamPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F01CD8173AFD5A00BE75F3 /* StreamPlayer.m */; };
+		49F01CDC173B057900BE75F3 /* StreamPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F01CDB173B057900BE75F3 /* StreamPacket.m */; };
 		CA43E09515143E580014F7C8 /* libRscMgrUniv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA43DFC815143E570014F7C8 /* libRscMgrUniv.a */; };
 		CA43E09615143E940014F7C8 /* 05-shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = CA43DE1215143E570014F7C8 /* 05-shuffle.png */; };
 		CA43E09715143E940014F7C8 /* 73-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = CA43DEBB15143E570014F7C8 /* 73-radar.png */; };
@@ -261,6 +265,14 @@
 		49C45CB7170A7EA4007C9999 /* DebugLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLogger.h; sourceTree = "<group>"; };
 		49C45CB8170A7EA4007C9999 /* DebugLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugLogger.m; sourceTree = "<group>"; };
 		49DD940216D9A5C7000DE266 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		49F01CD1173AFBC800BE75F3 /* RecordPlaybackInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordPlaybackInterface.h; sourceTree = "<group>"; };
+		49F01CD2173AFBC800BE75F3 /* RecordPlaybackInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordPlaybackInterface.m; sourceTree = "<group>"; };
+		49F01CD4173AFD4C00BE75F3 /* StreamRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamRecorder.h; sourceTree = "<group>"; };
+		49F01CD5173AFD4C00BE75F3 /* StreamRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamRecorder.m; sourceTree = "<group>"; };
+		49F01CD7173AFD5A00BE75F3 /* StreamPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamPlayer.h; sourceTree = "<group>"; };
+		49F01CD8173AFD5A00BE75F3 /* StreamPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPlayer.m; sourceTree = "<group>"; };
+		49F01CDA173B057900BE75F3 /* StreamPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamPacket.h; sourceTree = "<group>"; };
+		49F01CDB173B057900BE75F3 /* StreamPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamPacket.m; sourceTree = "<group>"; };
 		CA20FD26164E4754005187A8 /* ardupilotmega.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ardupilotmega.h; sourceTree = "<group>"; };
 		CA20FD27164E4754005187A8 /* mavlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mavlink.h; sourceTree = "<group>"; };
 		CA20FD28164E4754005187A8 /* mavlink_msg_ahrs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mavlink_msg_ahrs.h; sourceTree = "<group>"; };
@@ -933,6 +945,7 @@
 		496E62A816DAFBF600E52E4A /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				49F01CCE173AFB5600BE75F3 /* RecordPlayback */,
 				49369FB416DEEC0600D98370 /* RovingNetworks */,
 				496E62A916DAFBF600E52E4A /* Bluetooth */,
 				496E62B116DAFBF600E52E4A /* FightingWalrus */,
@@ -1003,6 +1016,21 @@
 				496E62C516DAFBF600E52E4A /* MavLinkTools.h */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		49F01CCE173AFB5600BE75F3 /* RecordPlayback */ = {
+			isa = PBXGroup;
+			children = (
+				49F01CD1173AFBC800BE75F3 /* RecordPlaybackInterface.h */,
+				49F01CD2173AFBC800BE75F3 /* RecordPlaybackInterface.m */,
+				49F01CD4173AFD4C00BE75F3 /* StreamRecorder.h */,
+				49F01CD5173AFD4C00BE75F3 /* StreamRecorder.m */,
+				49F01CD7173AFD5A00BE75F3 /* StreamPlayer.h */,
+				49F01CD8173AFD5A00BE75F3 /* StreamPlayer.m */,
+				49F01CDA173B057900BE75F3 /* StreamPacket.h */,
+				49F01CDB173B057900BE75F3 /* StreamPacket.m */,
+			);
+			path = RecordPlayback;
 			sourceTree = "<group>";
 		};
 		CA20FD24164E4754005187A8 /* mavlink-include */ = {
@@ -1783,6 +1811,10 @@
 				495253E416FB9971006E27B0 /* GKNetController.m in Sources */,
 				495253EA1703EFAE006E27B0 /* ProfileViewController.m in Sources */,
 				49C45CB9170A7EA4007C9999 /* DebugLogger.m in Sources */,
+				49F01CD3173AFBC800BE75F3 /* RecordPlaybackInterface.m in Sources */,
+				49F01CD6173AFD4C00BE75F3 /* StreamRecorder.m in Sources */,
+				49F01CD9173AFD5A00BE75F3 /* StreamPlayer.m in Sources */,
+				49F01CDC173B057900BE75F3 /* StreamPacket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
