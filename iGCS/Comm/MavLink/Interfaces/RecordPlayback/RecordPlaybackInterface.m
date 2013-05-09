@@ -26,6 +26,8 @@
     
     rpi.streamPlayer = [StreamPlayer createWithDelegate:rpi];
     
+    [rpi.streamPlayer startPlayback];
+    
     return rpi;
 }
 

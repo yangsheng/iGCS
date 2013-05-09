@@ -23,6 +23,11 @@
 
 @property (strong) id delegate;
 
+@property (strong) NSArray *packetBuffer;
+@property NSUInteger bufferIndex;
+
+@property (strong) NSTimer *playbackTimer;
+@property (strong) NSDate *playbackStartTime;
 
 +(StreamPlayer*)createWithDelegate:(id<StreamPlayerDelegate>)delegate;
 -(void)startPlayback;
