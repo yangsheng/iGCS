@@ -12,6 +12,12 @@
 				<string>fb370970953018525</string>
 			</array>
 		</dict>
+        <dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>db-upqcuw4fwo1hotd</string>
+			</array>
+		</dict>
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>

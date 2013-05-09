@@ -76,7 +76,6 @@ static MavLinkInterface *currentInputInterface;
     
     [DebugLogger console: @"Creating RovingNetworks connection."];
     rnBluetooth = [RNBluetoothInterface create];
-    [DebugLogger console:@"RovingNetworks disabled..."];
     
     if (rnBluetooth)
     {

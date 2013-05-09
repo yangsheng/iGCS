@@ -17,6 +17,8 @@
 
 #import "DebugLogger.h"
 
+#import <Dropbox/Dropbox.h>
+
 @implementation GCSMapViewController
 
 @synthesize windIconView;
@@ -246,6 +248,11 @@
 {
     [super viewDidAppear:animated];
     [self configureVideoStreamWithName:kGCSBryansTestStream andScaleFactor:kGCSVideoScaleFactor];
+    
+    if (![[DBAccountManager sharedManager] linkedAccount])
+    {
+        [[DBAccountManager sharedManager] linkFromController:self];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated

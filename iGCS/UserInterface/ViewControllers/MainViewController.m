@@ -15,6 +15,7 @@
 
 #import "GaugeViewCommon.h"
 
+#import <Dropbox/Dropbox.h>
 
 @implementation MainViewController
 

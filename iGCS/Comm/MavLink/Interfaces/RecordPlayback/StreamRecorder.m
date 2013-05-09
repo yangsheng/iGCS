@@ -85,7 +85,7 @@
 
 -(DBFile*)createLogFile
 {
-    DBPath *newPath = [[DBPath root] childPath:[NSString stringWithFormat:@"stream-%0.0f.txt",[[NSDate date] timeIntervalSince1970]]];
+    DBPath *newPath = [[DBPath root] childPath:[NSString stringWithFormat:@"streams/stream-%0.0f.dat",[[NSDate date] timeIntervalSince1970]]];
     
     self.logPath = newPath;
     

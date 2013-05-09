@@ -56,9 +56,12 @@ static AppDelegate *shared;
         //[BugSenseController sharedControllerWithBugSenseAPIKey:@"key_removed_for_open_source_port"];
     }
     
+    
+    NSString *dbKey = @"upqcuw4fwo1hotd";
+    NSString *dbSec = @"bqbhx0yn1my6emt";
 
     
-    DBAccountManager* accountMgr = [[DBAccountManager alloc] initWithAppKey:@"upqcuw4fwo1hotd" secret:@"bqbhx0yn1my6emt"];
+    DBAccountManager* accountMgr = [[DBAccountManager alloc] initWithAppKey:dbKey secret:dbSec];
     [DBAccountManager setSharedManager:accountMgr];
     DBAccount *account = accountMgr.linkedAccount;
     
@@ -66,6 +69,15 @@ static AppDelegate *shared;
         DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
         [DBFilesystem setSharedFilesystem:filesystem];
     }
+    
+    // DEBUG: test file creation
+    NSString *filePath = @"test.txt";
+    DBPath *path = [[DBPath root] childPath:filePath];
+    DBFile *file = [[DBFilesystem sharedFilesystem] createFile:path error:nil];
+    
+    [file writeString:@"Test" error:nil];
+    
+    [file close];
     
     
     // TODO: Move this into FightingWalrus Interface to support non-FW operation
@@ -229,7 +241,7 @@ static int counter = 0;
         NSLog(@"FacebookAPI:openURL: %@",[url description]);
         return [self.session handleOpenURL:url];
     }
-    else
+    else 
     {
         NSLog(@"openURL: Assuming URL is for Dropbox API.");
         

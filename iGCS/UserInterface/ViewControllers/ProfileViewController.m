@@ -161,10 +161,10 @@
     
 }
 
-#define kStartPlaybackLabelText @"StartPlayback"
-#define kStopPlaybackLabelText @"StopPlayback"
-#define kStartRecordLabelText @"StartRecord"
-#define kStopRecordLabelText @"StopRecord"
+#define kStartPlaybackLabelText @"Start Playback"
+#define kStopPlaybackLabelText @"Stop Playback"
+#define kStartRecordLabelText @"Start Recording"
+#define kStopRecordLabelText @"Stop Recording"
 
 - (IBAction)playbackButtonClick:(id)sender {
     if ([[[self.playbackButton titleLabel]text] isEqualToString:kStartPlaybackLabelText])
@@ -182,12 +182,12 @@
 - (IBAction)recordButtonClick:(id)sender {
     if ([[[self.recordButton titleLabel]text] isEqualToString:kStartRecordLabelText])
     {
-        [[self.recordButton titleLabel] setText:kStopRecordLabelText];
+        [self.recordButton setTitle:kStopRecordLabelText forState:UIControlStateNormal];
         [CommController startRecording];
     }
     else
     {
-        [[self.recordButton titleLabel] setText:kStartRecordLabelText];
+        [self.recordButton setTitle:kStartRecordLabelText forState:UIControlStateNormal];
         [CommController stopRecording];
     }
 }
