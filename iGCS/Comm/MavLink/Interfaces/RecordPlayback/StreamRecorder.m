@@ -58,6 +58,8 @@
     // Dump archiver NSData to Dropbox file
     [file writeData:archiveData error:nil];
     
+    [file close];
+    
     // FIXME: Handle errors
     
     

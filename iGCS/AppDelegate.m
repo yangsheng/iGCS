@@ -70,14 +70,7 @@ static AppDelegate *shared;
         [DBFilesystem setSharedFilesystem:filesystem];
     }
     
-    // DEBUG: test file creation
-    NSString *filePath = @"test.txt";
-    DBPath *path = [[DBPath root] childPath:filePath];
-    DBFile *file = [[DBFilesystem sharedFilesystem] createFile:path error:nil];
-    
-    [file writeString:@"Test" error:nil];
-    
-    [file close];
+  
     
     
     // TODO: Move this into FightingWalrus Interface to support non-FW operation
@@ -85,7 +78,7 @@ static AppDelegate *shared;
     
 	walrus = [[FightingWalrusProtocol alloc] init];
     
-    NSLog(@"Walrus protocol started.");
+    NSLog(@"Looking for Walrus..");
     
 	alertView = [[UIAlertView alloc] initWithTitle:@"Accessory Not Found"
 										   message:@"Fighting Walrus Radio is not attached."

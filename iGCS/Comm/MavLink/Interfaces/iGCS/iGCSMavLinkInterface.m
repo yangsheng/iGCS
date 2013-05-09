@@ -1,4 +1,4 @@
-//
+    //
 //  iGCSMavLinkInterface.m
 //  iGCS
 //
@@ -71,6 +71,7 @@ mavlink_heartbeat_t heartbeat;
         
         // Pass each byte to the MAVLINK parser
         for (unsigned int byteIdx = 0; byteIdx < length; byteIdx++) {
+            //NSLog(@"Processing byte: %x",bytes[byteIdx]);
             if (mavlink_parse_char(MAVLINK_COMM_0, bytes[byteIdx], &msg, &status)) {
                 // We completed a packet, so...
                 //[Logger console:@"Completed packet"];
@@ -188,6 +189,11 @@ mavlink_heartbeat_t heartbeat;
 #endif
             }
         }
+        
+        // Check mavlink status after all bytes are processed
+        
+        uint16_t rxDrop = status.packet_rx_drop_count;
+        NSLog(@"MavLink Stats: %i RX dropped bytes",rxDrop);
     }
     
 

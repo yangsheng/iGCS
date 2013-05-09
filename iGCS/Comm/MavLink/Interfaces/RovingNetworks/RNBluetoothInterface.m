@@ -242,7 +242,7 @@
 
 - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-	NSLog(@"RNBluetoothInterface::handleEvent:");
+	//NSLog(@"RNBluetoothInterface::handleEvent:");
     switch (eventCode) {
         case NSStreamEventNone:
             NSLog(@"stream %@ event none", aStream);

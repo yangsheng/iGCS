@@ -75,7 +75,9 @@ static MavLinkInterface *currentInputInterface;
     
     
     [DebugLogger console: @"Creating RovingNetworks connection."];
-    rnBluetooth = [RNBluetoothInterface create];
+    //rnBluetooth = [RNBluetoothInterface create];
+    
+    BOOL doRedpark = NO;
     
     if (rnBluetooth)
     {
@@ -92,7 +94,7 @@ static MavLinkInterface *currentInputInterface;
         [DebugLogger console:@"Connected iGCS Application output to RN Bluetooth Tx."];
     }
     
-    else
+    else if (doRedpark)
         // Do Redpark instead
     {
         
@@ -204,8 +206,6 @@ static MavLinkInterface *currentInputInterface;
     {
         player = [RecordPlaybackInterface createForPlayback];
     }
-    
-    [connections closeAllInterfaces];
     
     [connections addSource:player];
     appMLI = [iGCSMavLinkInterface createWithViewController:mainVC];
