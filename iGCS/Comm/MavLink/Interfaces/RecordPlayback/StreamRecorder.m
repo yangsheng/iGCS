@@ -16,6 +16,8 @@
 {
     StreamRecorder *streamRecorder = [[StreamRecorder alloc] init];
     
+    NSLog(@"Started recording...");
+    
     streamRecorder.packetBuffer = [NSMutableArray array];
     
     return streamRecorder;
@@ -59,6 +61,8 @@
     [file writeData:archiveData error:nil];
     
     [file close];
+    
+    NSLog(@"Dumped %i packets to file.",[self.packetBuffer count]);
     
     // FIXME: Handle errors
     

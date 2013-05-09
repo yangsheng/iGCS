@@ -43,7 +43,7 @@
 
 -(void)consumeData:(uint8_t *)bytes length:(int)length
 {
-    [DebugLogger console:@"RovingNetworks: consumeData (stubbed)."];
+    //[DebugLogger console:@"RovingNetworks: consumeData (stubbed)."];
     
     NSData *dataToStream = [NSData dataWithBytes:bytes length:length];
     [self writeData:dataToStream];
@@ -62,7 +62,7 @@
 
 - (void)writeDataFromBufferToStream
 {
-	NSLog(@"RNBluetoothInterface::writeDataFromBufferToStream");
+	//NSLog(@"RNBluetoothInterface::writeDataFromBufferToStream");
     while (([[_session outputStream] hasSpaceAvailable]) && ([_writeDataBuffer length] > 0))
     {
         NSInteger bytesWritten = [[_session outputStream] write:[_writeDataBuffer bytes] maxLength:[_writeDataBuffer length]];

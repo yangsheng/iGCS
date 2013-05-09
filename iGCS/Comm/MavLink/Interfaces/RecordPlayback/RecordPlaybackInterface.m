@@ -63,7 +63,7 @@
 {
     
     // FIXME: Change to NSData passing
-    uint8_t *bytes = malloc([data length]);
+    uint8_t *bytes = (uint8_t*)[data bytes];
     [self produceData:bytes length:[data length]];
     
 }

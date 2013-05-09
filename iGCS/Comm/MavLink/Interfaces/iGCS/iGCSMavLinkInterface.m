@@ -69,6 +69,16 @@ mavlink_heartbeat_t heartbeat;
         // Notify the comms view of receipt of n bytes
         [self.mainVC.commsVC bytesReceived: length];
         
+        // Instrument bytes
+        /*
+        NSString *bytesString = @"";
+        for(unsigned int bIdx = 0; bIdx < length; bIdx++)
+        {
+            bytesString = [NSString stringWithFormat:@"%@ %x",bytesString,bytes[bIdx]];
+        }
+        NSLog(@"Rx Bytes: %@",bytesString);
+         */
+        
         // Pass each byte to the MAVLINK parser
         for (unsigned int byteIdx = 0; byteIdx < length; byteIdx++) {
             //NSLog(@"Processing byte: %x",bytes[byteIdx]);
@@ -193,7 +203,7 @@ mavlink_heartbeat_t heartbeat;
         // Check mavlink status after all bytes are processed
         
         uint16_t rxDrop = status.packet_rx_drop_count;
-        NSLog(@"MavLink Stats: %i RX dropped bytes",rxDrop);
+        //NSLog(@"MavLink Stats: %i RX dropped bytes",rxDrop);
     }
     
 

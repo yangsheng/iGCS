@@ -43,6 +43,8 @@
         
         self.packetBuffer = packetArray;
         self.bufferIndex = 0;
+        
+        NSLog(@"Loaded packet buffer with %i packets.",[self.packetBuffer count]);
     }
     else
     {
@@ -110,7 +112,24 @@
     while (packetPlaybackTime < currentPlaybackTime)
     {
         NSLog(@"Streaming %i bytes: %@",[currentPacket.packetData length],currentPacket.timeStamp);
+        
+        // Instrument bytes
+        /*
+        NSString *bytesString = @"";
+        uint8_t *bytes = (uint8_t*)[currentPacket.packetData bytes];
+        
+        for(unsigned int bIdx = 0; bIdx < [currentPacket.packetData length]; bIdx++)
+        {
+            bytesString = [NSString stringWithFormat:@"%@ %x",bytesString,bytes[bIdx]];
+        }
+        NSLog(@"Playback Bytes: %@",bytesString);
+         */
+        
         [delegate playerProducedData:currentPacket.packetData];
+        
+        
+        
+        
         
         self.bufferIndex++;
         
