@@ -54,7 +54,11 @@
 #define kMaxPacketSize 1024
 #define kGCSBryansTestStream @"kGCSBryansTestStream"
 #define kGCSZ3Stream @"kGCSZ3Stream"
-#define kGCSVideoScaleFactor 0.4
+
+// 0.82 for the width of the map view.
+// 1.64 for full screen video.
+// 0.4 for a nice little stream in the top right corner.
+#define kGCSVideoScaleFactor 0.82
 
 // GameKit Session ID for app
 #define kTankSessionID @"groundStation"
