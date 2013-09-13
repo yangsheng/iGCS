@@ -155,7 +155,7 @@ static AppDelegate *shared;
      See also applicationDidEnterBackground:.
      */
     
-    [CommController closeAllInterfaces];
+    [[CommController sharedInstance] closeAllInterfaces];
     
     [self.session close];
     

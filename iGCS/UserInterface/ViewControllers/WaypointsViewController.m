@@ -266,7 +266,7 @@
 }
 
 - (IBAction)uploadClicked:(id)sender {
-    [[CommController appMLI] issueStartWriteMissionRequest: waypoints];
+    [[[CommController sharedInstance] mavLinkInterface] issueStartWriteMissionRequest: waypoints];
 }
 
 
@@ -291,7 +291,7 @@
 
 
 - (IBAction)loadDemoMision: (id)sender {
-    [[CommController appMLI] loadDemoMission];
+    [[[CommController sharedInstance] mavLinkInterface] loadDemoMission];
 }
 
 @end
