@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		181346951809F5A400E079A3 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181346941809F5A400E079A3 /* Dropbox.framework */; };
+		18134699180A4BA900E079A3 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18134698180A4BA900E079A3 /* Dropbox.framework */; };
 		1830D07217D1651400F77F7E /* DateTimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830D07117D1651400F77F7E /* DateTimeUtils.m */; };
 		1888DE68170F7D1800ADA039 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1888DE67170F7D1800ADA039 /* MediaPlayer.framework */; };
 		1888DE6A170F7D1F00ADA039 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1888DE69170F7D1F00ADA039 /* CoreAudio.framework */; };
@@ -171,7 +171,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		181346941809F5A400E079A3 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
+		18134698180A4BA900E079A3 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = iGCS/Dropbox.framework; sourceTree = "<group>"; };
 		1830D07017D1651400F77F7E /* DateTimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeUtils.h; sourceTree = "<group>"; };
 		1830D07117D1651400F77F7E /* DateTimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimeUtils.m; sourceTree = "<group>"; };
 		1888DE67170F7D1800ADA039 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -740,7 +740,7 @@
 				CAF8ADAA14E20A0100DB3D84 /* CoreLocation.framework in Frameworks */,
 				CA8CA89316576557003C6D50 /* QuartzCore.framework in Frameworks */,
 				CA43E09515143E580014F7C8 /* libRscMgrUniv.a in Frameworks */,
-				181346951809F5A400E079A3 /* Dropbox.framework in Frameworks */,
+				18134699180A4BA900E079A3 /* Dropbox.framework in Frameworks */,
 				CAA2CFDA161C000C00267615 /* libz.dylib in Frameworks */,
 				CAF0B8841657A8960033B0BC /* libCorePlot-CocoaTouch.a in Frameworks */,
 				49AC435E1708B8EF008225A3 /* Dropbox.framework in Frameworks */,
@@ -1466,7 +1466,7 @@
 		CA499F6114DE33BC00FCC9FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				181346941809F5A400E079A3 /* Dropbox.framework */,
+				18134698180A4BA900E079A3 /* Dropbox.framework */,
 				CABD957518024F3A003557A3 /* FacebookSDK */,
 				CAA2CFD9161C000C00267615 /* libz.dylib */,
 				18E62664171101D9006A5D43 /* libkxmovie.a */,
@@ -1975,6 +1975,7 @@
 					"\\\"$(SRCROOT)/iGCS\\\"",
 					"\\\"$(SRCROOT)/iGCS/Login\\\"",
 					"/Users/abrown/working-drone/iGCS",
+					"/Users/abrown/working-drone/iGCS/iGCS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iGCS/iGCS-Prefix.pch";
@@ -2016,6 +2017,7 @@
 					"\\\"$(SRCROOT)/iGCS\\\"",
 					"\\\"$(SRCROOT)/iGCS/Login\\\"",
 					"/Users/abrown/working-drone/iGCS",
+					"/Users/abrown/working-drone/iGCS/iGCS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iGCS/iGCS-Prefix.pch";
